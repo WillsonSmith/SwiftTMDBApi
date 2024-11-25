@@ -1,0 +1,15 @@
+{
+  "originHash" : "9d01db251c2aa3c167b0340eb1e671dbe35b89f88f9b334ac8dd5b96171b5936",
+  "pins" : [
+    {
+      "identity" : "swift-misc-utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WillsonSmith/swift-misc-utils",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e37c4da6b32c02a2db8820114b812c4465b558a8"
+      }
+    }
+  ],
+  "version" : 3
+}
