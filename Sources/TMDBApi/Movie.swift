@@ -19,13 +19,20 @@ extension TMDBApi {
     }
 
     public struct Movie: Codable {
-        public let id: Int
-        public let title: String
-        public let overview: String
-        public let backdrop_path: String?
-        public let poster_path: String?
-        public let production_companies: [ProductionCompany]?
-        public let genres: [Genre]?
+        let id: Int
+        let adult: Bool
+        let backdropPath: String?
+        let genreIds: [Int]?
+        let originalLanguage: String?
+        let originalTitle: String?
+        let overview: String?
+        let popularity: Double
+        let posterPath: String?
+        let releaseDate: String?
+        let title: String?
+        let video: Bool
+        let voteAverage: Double
+        let voteCount: Int
     }
 }
 
