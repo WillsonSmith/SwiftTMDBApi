@@ -14,14 +14,20 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/WillsonSmith/swift-misc-utils", branch: "main"),
+        .package(
+            url: "https://github.com/WillsonSmith/swift-misc-utils",
+            branch: "main"
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "TMDBApi",
-            dependencies: [.product(name: "MiscUtils", package: "swift-misc-utils")]
+            dependencies: [.product(
+                name: "MiscUtils",
+                package: "swift-misc-utils"
+            )]
         ),
         .testTarget(
             name: "TMDBApiTests",

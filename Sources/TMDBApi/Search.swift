@@ -4,17 +4,23 @@ import MiscUtils
 // MARK: - TMDBApi.Search
 
 extension TMDBApi {
-    func findMovies(title: String, year: Int? = nil) async throws -> Search.Response? {
+    func findMovies(title: String, year: Int? = nil) async throws -> Search
+        .Response? {
         try await Search.fetch(
             apiKey: apiKey,
             searchType: .movie,
             queryItems: [
                 URLQueryItem(name: "query", value: title),
-                URLQueryItem(name: "year", value: year != nil ? String(year!) : nil),
+                URLQueryItem(
+                    name: "year",
+                    value: year != nil ? String(year!) : nil
+                ),
             ]
         )
     }
+}
 
+extension TMDBApi {
     public enum Search {
         public protocol Response: Codable {
             var page: Int { get }
@@ -25,7 +31,8 @@ extension TMDBApi {
             searchType: SearchType,
             queryItems: [URLQueryItem]
         ) async throws -> Response? {
-            guard let url = URL(string: searchType.endpoint)?.appending(queryItems: queryItems)
+            guard let url = URL(string: searchType.endpoint)?
+                .appending(queryItems: queryItems)
             else {
                 throw URLError(.badURL)
             }

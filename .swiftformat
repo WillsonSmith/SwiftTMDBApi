@@ -71,7 +71,7 @@ strongifiedSelf
 --extensionacl on-declarations
 --funcattributes prev-line
 --indent 4
---maxwidth 100 
+--maxwidth 80 
 --typeattributes prev-line
 --funcattributes prev-line
 --storedvarattrs prev-line
