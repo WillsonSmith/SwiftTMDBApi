@@ -37,9 +37,13 @@ extension TMDBApi {
                 throw URLError(.badURL)
             }
 
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
             return try await NetUtils.fetchJSON(
                 url: url.absoluteString,
                 headers: ["Authorization": "Bearer \(apiKey)"],
+                decoder: decoder,
                 decodeType: searchType.responseType
             )
         }
@@ -96,8 +100,8 @@ extension TMDBApi.Search {
     struct MovieResponse: Codable, Response {
         let page: Int
         let results: [MovieResult]
-        // let totalPages: Int
-        // let totalResults: Int
+        let totalPages: Int
+        let totalResults: Int
     }
 }
 
